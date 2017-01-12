@@ -161,7 +161,7 @@ def _from_documents(doc_method_name):
 
 class CorpusReader(object):
     """
-    OpenCorpora.ru corpus reader. Provides fast access to individual
+    OpenCorpora.org corpus reader. Provides fast access to individual
     documents without loading and parsing the whole XML.
     It is capable of iterating over individual paragraphs,
     sentences and tokens without loading all data to memory.
