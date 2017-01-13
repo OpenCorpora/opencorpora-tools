@@ -50,7 +50,7 @@ def _sentence_parsed_words(sent_elem):
         text = text_type(tok.get('text'))
         parses = tok.findall('*//l')
         annotations = [
-            (text_type(p.get('t')), text_type(',').join(_grammemes(p)))
+            (text_type(p.get('t')), text_type(',').join(_grammemes(p)), p.get('id'))
             for p in parses
         ]
         res.append((text, annotations))
