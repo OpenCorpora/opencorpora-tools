@@ -105,7 +105,7 @@ class CorporaTest(BaseTest):
     def test_parsed_words(self):
         words = self.corpus.parsed_words()
         self.assertEqual(len(words), len(self.corpus.words()))
-        self.assertEqual(words[967], ('Школа', [('школа', 'NOUN,inan,femn,sing,nomn')]))
+        self.assertEqual(words[967], ('Школа', [('школа', 'NOUN,inan,femn,sing,nomn', '393872')]))
 
     def test_tagged_words_slicing(self):
         words = self.corpus.tagged_words('3')
@@ -115,7 +115,7 @@ class CorporaTest(BaseTest):
     def test_parsed_words_slicing(self):
         words = self.corpus.parsed_words('3')
         self.assertEqual(len(words), len(self.corpus.words('3')))
-        self.assertEqual(words[17], ('арт-группы', [('арт-группы', 'UNKN')]))
+        self.assertEqual(words[17], ('арт-группы', [('арт-группы', 'UNKN', '0')]))
 
 
     def test_paras(self):
@@ -273,8 +273,8 @@ class ParsedWordsTest(BaseTest):
     def test_corpus(self):
         words = self.corpus.parsed_words()
         self.assertEqual(words[:2], [
-            ('«', [('«', 'UNKN')]),
-            ('Школа', [('школа', 'NOUN,inan,femn,sing,nomn')]),
+            ('«', [('«', 'UNKN', '0')]),
+            ('Школа', [('школа', 'NOUN,inan,femn,sing,nomn', '393872')]),
         ])
         self.assertParsedAreTheSame(self.corpus)
 
@@ -282,7 +282,7 @@ class ParsedWordsTest(BaseTest):
         doc = self.corpus.get_document(2)
         words = doc.parsed_words()
         self.assertEqual(words[:2], [
-            ('«', [('«', 'UNKN')]),
-            ('Школа', [('школа', 'NOUN,inan,femn,sing,nomn')]),
+            ('«', [('«', 'UNKN', '0')]),
+            ('Школа', [('школа', 'NOUN,inan,femn,sing,nomn', '393872')]),
         ])
         self.assertParsedAreTheSame(doc)

@@ -6,7 +6,7 @@ import logging
 from opencorpora import reader
 from opencorpora.reader import CorpusReader
 from russian_tagsets import converters
-from pymorphy2.opencorpora_dict.parse import ParsedDictionary, parse_opencorpora_xml
+from pymorphy2.opencorpora_dict.parse import parse_opencorpora_xml
 
 class UDConverter(object):
     """
