@@ -327,11 +327,11 @@ class CorpusReader(object):
         meta = OrderedDict()
 
         bounds_iter = xml_utils.bounds(self.filename,
-                            start_re=r'<text id="(\d+)"[^>]*name="([^"]*)"',
+                            start_re=r'<text\s*(?:parent="\d+")?\s*name="([^"]*)"[^>]*id="(\d+)"',
                             end_re=r'</text>')
 
         for match, bounds in bounds_iter:
-            doc_id, title = str(match.group(1)), match.group(2)
+            title, doc_id = match.group(1), str(match.group(2))
             title = xml_utils.unescape_attribute(title)
 
             # cache categories
