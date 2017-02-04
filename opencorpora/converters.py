@@ -40,7 +40,7 @@ class UDConverter(object):
             raise Exception("Ambiguous parses cannot be converted to UD: {}".format(token[1]))
         lemma_id = token[1][0][2]
         lemma = self.lemma_rewrite.get(lemma_id, token[1][0][0])
-        pos, grams = self.converter(token[1][0][1]).split()
+        pos, grams = self.converter(token[1][0][1], lemma).split()
         return '\t'.join((
             str(token_no),
             token[0],
